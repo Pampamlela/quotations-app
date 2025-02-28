@@ -1,21 +1,28 @@
 
+let formulaire = document.getElementById("formulaire"); // on récupère le formulaire
 
 
 
+// ajout d'un gestionnnaire d'évènement sur le formulaire
+formulaire.addEventListener("submit", ()=> {   
 
+    let author = document.getElementById("name").value // récuperation de l'auteur
+    let quote = document.getElementById("citation").value // récupération de la citation
+   
+    console.log(author)
+    console.log(quote)
 
+    addQuote()
+}); 
 
+function addQuote(quote, author) {
+    let newDivQuote = document.createElement ("p", {class: "text"}) // nouveau <p> avec la class text
+    let newDivAuthor = document.createElement ("p", {class: "author"}) // nouveau <p> avec la class author
+    quote = newDivQuote.value 
+    author = newDivAuthor.value
 
+    let newDiv = document.createElement("div", {class:"quote"}) // nouvelle <div> avec la class quote
+    newDiv = quote + author
 
-/*Les choses sérieuses commencent. 
-Il est temps d’interagir avec notre page en JavaScript !
-
-On passe donc sur notre ficher JS. Ajoutez un gestionnaire 
-d’événement avec addEventListener sur le formulaire, 
-n'hesitez pas à jeter un oeil à la documentation sur les forms ou les eventListener, 
-c'est le moment ;).
-
-Dans la fonction appelée lors de la soumission du formulaire :
-
-- Récupérez les valeurs des champs <input> dans deux variables : text et author.
-- Utilisez console.log() pour afficher ces valeurs et vérifier leur récupération.*/
+    let paragraphe = document.getElementById("quote-list").appendChild(newDiv) // récupération de l'élément avec l'id quote-list et ajout de la nouvelle citation
+}
